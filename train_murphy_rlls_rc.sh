@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+python train_rlls_rc.py --epoch=11 --batch_size=16 \
+         --gpu=7 \
+         --model_type='ours14' \
+         --shuffle_training_data='true' \
+         --seed=42 \
+         --seq_length=1 \
+         --our_backbone='resnet50' \
+         --our_freeze_backbone='false' \
+         --our_use_pretrain_backbone_parameters='false' \
+         --pretrained_backbone=''\
+         --our_optimizer='sgd' \
+         --resume='/path/to/rlls/model/parameters'\
+         --start_epoch=0 \
+         --num_workers=4 \
+         --lr=0.001 \
+         --lr_backbone=0.01 \
+         --lr_gcn=0.01 \
+         --lr_classifier=0.01 \
+         --weight_decay=0.0 \
+         --checkpoint='exp_rc_murphy' \
+         --dataset='RLLS' \
+         --difficulty_level='mix' \
+         --split_id=-1 \
+         --use_temporal_info=1 \
+         --debug_mode='deploy' \
+         --dataset_directory='/change/to/your/path/to/the/root/of/RLLS12M/directory' \
+         --target_task='step: 7, task: 16, triplet: 39, instrument: 12, action: 9, object: 17' \
+         --loss_weight='loss_step:1.0, loss_task:1.0, loss_triplet:1.0, loss_instrument:1.0, loss_action:1.0, loss_object:1.0'

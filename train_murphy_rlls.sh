@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+python train.py --epoch=51 --batch_size=16 \
+         --seed=42 \
+         --seq_length=1 \
+         --frag_stride=1 \
+         --gpu=6 \
+         --model_type='ours14' \
+         --shuffle_training_data='true' \
+         --our_activation_func='relu' \
+         --our_backbone='resnet50lstm' \
+         --our_freeze_backbone='false' \
+         --our_use_pretrain_backbone_parameters='true' \
+         --pretrained_backbone=''\
+         --resume=''\
+         --start_epoch=0 \
+         --our_optimizer='sgd' \
+         --num_workers=4 \
+         --lr=0.01 \
+         --checkpoint='exp_murphy' \
+         --dataset='RLLS' \
+         --difficulty_level='mix' \
+         --split_id=1 \
+         --use_temporal_info=1 \
+         --debug_mode='deploy' \
+         --dataset_directory='/change/to/your/path/to/the/root/of/RLLS12M/directory' \
+         --target_task='step: 7, task: 16, triplet: 39, instrument: 12, action: 9, object: 17' \
+         --loss_weight='loss_step:1.0, loss_task:1.0, loss_triplet:1.0, loss_instrument:1.0, loss_action:1.0, loss_object:1.0'
